@@ -8,13 +8,17 @@
   <link rel="dns-prefetch" href="http://muradil.github.io">
   <title>笔芯の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="交换机入门工作原理 学习 &amp;emsp;&amp;emsp;根据数据包的源Mac进行学习，将该Mac地址和收到的该Mac地址接口进行绑定 经过学习产生Mac地址 泛红 &amp;emsp;&amp;emsp;交换机在不知道去往的目标在什么地方的时候选择将该数据包从除接受接口之外所有接口都发送一份的过程 泛红不需要关注数据包的类型 转发 &amp;emsp;&amp;emsp;在交换机知道去往的目标在什么地方的时候直接将数据包发送到对应的目">
+<meta property="og:type" content="article">
 <meta property="og:title" content="笔芯の博客">
-<meta property="og:url" content="http://muradil.github.io/index.html">
+<meta property="og:url" content="http://muradil.github.io/2019/08/03/交换机入门/index.html">
 <meta property="og:site_name" content="笔芯の博客">
+<meta property="og:description" content="交换机入门工作原理 学习 &amp;emsp;&amp;emsp;根据数据包的源Mac进行学习，将该Mac地址和收到的该Mac地址接口进行绑定 经过学习产生Mac地址 泛红 &amp;emsp;&amp;emsp;交换机在不知道去往的目标在什么地方的时候选择将该数据包从除接受接口之外所有接口都发送一份的过程 泛红不需要关注数据包的类型 转发 &amp;emsp;&amp;emsp;在交换机知道去往的目标在什么地方的时候直接将数据包发送到对应的目">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-03T01:42:17.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔芯の博客">
+<meta name="twitter:description" content="交换机入门工作原理 学习 &amp;emsp;&amp;emsp;根据数据包的源Mac进行学习，将该Mac地址和收到的该Mac地址接口进行绑定 经过学习产生Mac地址 泛红 &amp;emsp;&amp;emsp;交换机在不知道去往的目标在什么地方的时候选择将该数据包从除接受接口之外所有接口都发送一份的过程 泛红不需要关注数据包的类型 转发 &amp;emsp;&amp;emsp;在交换机知道去往的目标在什么地方的时候直接将数据包发送到对应的目">
   
     <link rel="alternative" href="/atom.xml" title="笔芯の博客" type="application/atom+xml">
   
@@ -150,156 +154,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-ospf认证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="6-4-OSPF-认证"><a href="#6-4-OSPF-认证" class="headerlink" title="6.4 OSPF 认证 ."></a>6.4 OSPF 认证 .</h1><h3 id="6-4-1-实验-3：基于区域的-OSPF-简单口令认证"><a href="#6-4-1-实验-3：基于区域的-OSPF-简单口令认证" class="headerlink" title="6.4.1 实验 3：基于区域的 OSPF 简单口令认证"></a>6.4.1 实验 3：基于区域的 OSPF 简单口令认证</h3><h4 id="1-实验目的-通过本实验可以掌握：-（1）OSPF-认证的类型和意义-（2）基于区域的-OSPF-简单口令认证的配置和调试-2-实验拓扑"><a href="#1-实验目的-通过本实验可以掌握：-（1）OSPF-认证的类型和意义-（2）基于区域的-OSPF-简单口令认证的配置和调试-2-实验拓扑" class="headerlink" title="1.实验目的 通过本实验可以掌握： （1）OSPF 认证的类型和意义 （2）基于区域的 OSPF 简单口令认证的配置和调试 2.实验拓扑"></a>1.实验目的 通过本实验可以掌握： （1）OSPF 认证的类型和意义 （2）基于区域的 OSPF 简单口令认证的配置和调试 2.实验拓扑</h4><p>本实验的拓扑结构如图 6-3 所示。 </p>
-<p>图 6-3 基于区域的 OSPF 简单口令认证 </p>
-<p>3.实验步骤 （1）步骤 1：配置路由器 R1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#router ospf 1</span><br><span class="line"> R1(config-router)#router-id 1.1.1.1</span><br><span class="line"> R1(config-router)#network 192.168.12.0 255.255.255.0 area 0 </span><br><span class="line"> R1(config-router)#network 1.1.1.0 255.255.255.0 area 0 </span><br><span class="line"> R1(config-router)#area 0 authentication //区域 0 启用简单口令认证</span><br><span class="line"> R1(config)#interface s0/0/0 R1(config-if)#ip ospf authentication-key cisco //配置认证密码</span><br></pre></td></tr></table></figure>
-<p>（2）步骤 2：配置路由器 R2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#router ospf 1</span><br><span class="line"> R2(config-router)#router-id 2.2.2.2 R2(config-router)#network 2.2.2.0 255.255.255.0 area 0</span><br><span class="line"> R2(config-router)#network 192.168.12.0 255.255.255.0 area 0 </span><br><span class="line"> R2(config-router)#area 0 authentication  R2(config)#interface s0/0/0 </span><br><span class="line"> R2(config-if)#ip ospf authentication-key cisco</span><br></pre></td></tr></table></figure>
-<p>4.实验调试<br>（1）show ip ospf interface</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">R1#show ip ospf interface s0/0/0 </span><br><span class="line">Serial0/0/0 is up, line protocol is up  </span><br><span class="line">  Internet Address 192.168.12.1/24, Area 0  </span><br><span class="line">  Process ID 1, Router ID 1.1.1.1, Network Type POINT_TO_POINT, Cost: 781 </span><br><span class="line">  Transmit Delay is 1 sec, State POINT_TO_POINT </span><br><span class="line">  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5 </span><br><span class="line">    oob-resync timeout 40 </span><br><span class="line">    Hello due in 00:00:02 </span><br><span class="line">  Supports Link-local Signaling (LLS) </span><br><span class="line">  Cisco NSF helper support enabled </span><br><span class="line">  IETF NSF helper support enabled </span><br><span class="line">  Index 1/1, flood queue length 0 </span><br><span class="line">  Next 0x0(0)/0x0(0) </span><br><span class="line">  Last flood scan length is 0, maximum is 1 </span><br><span class="line">  Last flood scan time is 0 msec, maximum is 0 msec </span><br><span class="line">  Neighbor Count is 0, Adjacent neighbor count is 0  </span><br><span class="line">  Suppress hello for 0 neighbor(s) </span><br><span class="line">  Simple password authentication enabled</span><br></pre></td></tr></table></figure>
-<p> 以上输出后一行信息表明该接口启用了简单口令认证。 （2）show ip ospf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[R1#show ip ospf </span><br><span class="line"> Routing Process &quot;ospf 1&quot; with ID 1.1.1.1 </span><br><span class="line"> Supports only single TOS(TOS0) routes ......     Area BACKBONE(0) </span><br><span class="line">        Number of interfaces in this area is 2 (1 loopback) </span><br><span class="line">        Area has simple password authentication </span><br><span class="line">        SPF algorithm last executed 00:00:01.916 ago </span><br><span class="line">        SPF algorithm executed 5 times </span><br><span class="line">        Area ranges are </span><br><span class="line">        Number of LSA 2. Checksum Sum 0x010117 </span><br><span class="line">        Number of opaque link LSA 0. Checksum Sum 0x000000 </span><br><span class="line">        Number of DCbitless LSA 0 </span><br><span class="line">        Number of indication LSA 0 </span><br><span class="line">        Number of DoNotAge LSA 0 </span><br><span class="line">        Flood list length 0 以上输出表明区域 0 采用简单口令认证](https://note.youdao.com/)</span><br></pre></td></tr></table></figure></p>
-<p>。 （3）如果 R1 区域 0 没有启动认证，而 R2 区域 0 启动简单口令认证，则 R2 上出现下面 的信息： *Feb 10 11:03:03.071: OSPF: Rcv pkt from 192.168.12.1, Serial0/0/0 : Mismatch Authentication type. Input packet specified type 0, we use type 1 </p>
-<p>（4）如果 R1 和 R2 的区域 0 都启动简单口令认证，但是 R2 的接口下没有配置密码或密 码错误，则 R2 上出现下面的信息： *Feb 10 10:55:53.071: OSPF: Rcv pkt from 192.168.12.1, Serial0/0/0 : Mismatch Authentication Key - Clear Text<br>6.4.2 实验 4: 基于区域的 OSPF MD5 认证<br>1.实验目的 通过本实验可以掌握：<br>（1）OSPF 认证的类型和意义<br>（2）基于区域的 OSPF MD5 认证的配置和调试<br> 2.实验拓扑 本实验的拓扑结构如图 6-3 所示。<br> 3.实验步骤 （1）步骤 1：配置路由器 R1 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#router ospf 1</span><br><span class="line"> R1(config-router)#router-id 1.1.1.1</span><br><span class="line"> R1(config-router)#network 192.168.12.0 255.255.255.0 area 0</span><br><span class="line"> R1(config-router)#network 1.1.1.0 255.255.255.0 area 0</span><br><span class="line"> R1(config-router)#area 0 authentication message-digest //区域 0</span><br></pre></td></tr></table></figure>
-<p> 启用 MD5 认证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#interface s0/0/0 </span><br><span class="line"> R1(config-if)#ip ospf message-digest-key 1 md5 cisco//配置认证 key ID 及密匙</span><br></pre></td></tr></table></figure>
-<p>（2）步骤 2：配置路由器 R2 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#router ospf 1</span><br><span class="line">R2(config-router)#router-id 2.2.2.2 </span><br><span class="line">R2(config-router)#network 2.2.2.0 255.255.255.0 area 0 </span><br><span class="line">R2(config-router)#network 192.168.12.0 255.255.255.0 area 0 </span><br><span class="line">R2(config-router)#area 0 authentication message-digest</span><br><span class="line">R2(config)#interface s0/0/0 R2(config-if)#ip ospf message-digest-key 1 md5 cisco</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/03/ospf认证/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-交换网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="交换网络"><a href="#交换网络" class="headerlink" title="交换网络"></a>交换网络</h1><blockquote>
-<p><strong>传输层</strong>：</p>
-</blockquote>
-<pre><code>sport:49153          dport:23
-</code></pre><ul>
-<li>1-1023:</li>
-<li>1024-49151 :用户端口号</li>
-<li>49152-65535 : 动态端口号（源端口号）</li>
-</ul>
-<blockquote>
-<p><strong>网络层</strong></p>
-</blockquote>
-<pre><code>sou:               dis:
-</code></pre><blockquote>
-<p><strong>链路层</strong></p>
-</blockquote>
-<pre><code>smac：                dimac：
-</code></pre><blockquote>
-<p><strong>数据帧</strong>：</p>
-<ul>
-<li>前导码                 7字节</li>
-<li>帧首定界符                    1字节</li>
-<li>Mac地址（目标Mac地址）6字节</li>
-<li>Mac地址（源Mac地址）  6字节</li>
-<li>长度字段 1字节</li>
-<li>数据（46-1500）字节</li>
-<li>校验 4字节</li>
-</ul>
-</blockquote>
-<p>802.3:64 <br></p>
-<p>以太网：64-1522</p>
-<p><strong>arp地址解析协议</strong>:将目标的IP地址解析成对应Mac的过程</p>
-<h4 id="三层协议"><a href="#三层协议" class="headerlink" title="三层协议"></a><center style="color:red;">三层协议</center><br></h4><p>请求包  &emsp; 应答包</p>
-<p><strong>1、标准ARP</strong></p>
-<p><strong>2、免费ARP</strong>：主要是用来检测本地配置的IP地址是否同一网段当中发生冲突</p>
-<p><strong>3、代理ARP</strong>：pc端发送一个ARP请求包。但是请求的主机IP地址在我们实际的网段当中是不存在的，这个时候有网段当中的一个网络设备将自己Mac地址作为响应的一个过程<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（1）请求的IP地址和本身的IP地址不在同一个网段</span><br><span class="line">（2）作为响应的那台网络设备必须要有请求的IP地址的路由</span><br><span class="line">（3）作为响应的那台网络设备必须开启代理ARP功能</span><br></pre></td></tr></table></figure></p>
-<p>// &gt; ###  网关：<br></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/03/交换网络/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-交换机入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-交换机入门" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -328,6 +183,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -335,16 +211,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/03/交换机入门/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://muradil.github.io/2019/08/03/交换机入门/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/03/交换网络/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/22/开始学习逆向第一天/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开始学习逆向的第一天</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -364,70 +308,14 @@
 
 
 
-
   
-    <article id="post-开始学习逆向第一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/开始学习逆向第一天/">开始学习逆向的第一天</a>
-    </h1>
   
 
-        
-        <a href="/2019/05/22/开始学习逆向第一天/" class="archive-article-date">
-  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/22/开始学习逆向第一天/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+
   
 
 
@@ -450,8 +338,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
