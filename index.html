@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="笔芯の博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/xxx.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -55,7 +55,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/categories">分类</a></li>
+	        
+				<li><a href="/archives">归档</a></li>
+	        
+				<li><a href="/about">关于</a></li>
 	        
 			</ul>
 		</nav>
@@ -79,11 +83,15 @@
 				
 					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="weibo" target="_blank" href="https://weibo.com/u/5039750197?nick=mardil" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="qq" target="_blank" href="/141316480" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="bilibili" target="_blank" href="#" title="bilibili"><i class="icon-bilibili"></i></a>
+		        
+					<a class="mail" target="_blank" href="/mardel@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -113,6 +121,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -120,22 +132,30 @@
 					
 						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="weibo" target="_blank" href="https://weibo.com/u/5039750197?nick=mardil" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="qq" target="_blank" href="/141316480" title="qq"><i class="icon-qq"></i></a>
+			        
+						<a class="bilibili" target="_blank" href="#" title="bilibili"><i class="icon-bilibili"></i></a>
+			        
+						<a class="mail" target="_blank" href="/mardel@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/categories">分类</a></li>
+		        
+					<li style="width: 25%"><a href="/archives">归档</a></li>
+		        
+					<li style="width: 25%"><a href="/about">关于</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,17 +198,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#router ospf 1</span><br><span class="line"> R1(config-router)#router-id 1.1.1.1</span><br><span class="line"> R1(config-router)#network 192.168.12.0 255.255.255.0 area 0 </span><br><span class="line"> R1(config-router)#network 1.1.1.0 255.255.255.0 area 0 </span><br><span class="line"> R1(config-router)#area 0 authentication //区域 0 启用简单口令认证</span><br><span class="line"> R1(config)#interface s0/0/0 R1(config-if)#ip ospf authentication-key cisco //配置认证密码</span><br></pre></td></tr></table></figure>
 <p>（2）步骤 2：配置路由器 R2</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#router ospf 1</span><br><span class="line"> R2(config-router)#router-id 2.2.2.2 R2(config-router)#network 2.2.2.0 255.255.255.0 area 0</span><br><span class="line"> R2(config-router)#network 192.168.12.0 255.255.255.0 area 0 </span><br><span class="line"> R2(config-router)#area 0 authentication  R2(config)#interface s0/0/0 </span><br><span class="line"> R2(config-if)#ip ospf authentication-key cisco</span><br></pre></td></tr></table></figure>
-<p>4.实验调试<br>（1）show ip ospf interface</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">R1#show ip ospf interface s0/0/0 </span><br><span class="line">Serial0/0/0 is up, line protocol is up  </span><br><span class="line">  Internet Address 192.168.12.1/24, Area 0  </span><br><span class="line">  Process ID 1, Router ID 1.1.1.1, Network Type POINT_TO_POINT, Cost: 781 </span><br><span class="line">  Transmit Delay is 1 sec, State POINT_TO_POINT </span><br><span class="line">  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5 </span><br><span class="line">    oob-resync timeout 40 </span><br><span class="line">    Hello due in 00:00:02 </span><br><span class="line">  Supports Link-local Signaling (LLS) </span><br><span class="line">  Cisco NSF helper support enabled </span><br><span class="line">  IETF NSF helper support enabled </span><br><span class="line">  Index 1/1, flood queue length 0 </span><br><span class="line">  Next 0x0(0)/0x0(0) </span><br><span class="line">  Last flood scan length is 0, maximum is 1 </span><br><span class="line">  Last flood scan time is 0 msec, maximum is 0 msec </span><br><span class="line">  Neighbor Count is 0, Adjacent neighbor count is 0  </span><br><span class="line">  Suppress hello for 0 neighbor(s) </span><br><span class="line">  Simple password authentication enabled</span><br></pre></td></tr></table></figure>
-<p> 以上输出后一行信息表明该接口启用了简单口令认证。 （2）show ip ospf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[R1#show ip ospf </span><br><span class="line"> Routing Process &quot;ospf 1&quot; with ID 1.1.1.1 </span><br><span class="line"> Supports only single TOS(TOS0) routes ......     Area BACKBONE(0) </span><br><span class="line">        Number of interfaces in this area is 2 (1 loopback) </span><br><span class="line">        Area has simple password authentication </span><br><span class="line">        SPF algorithm last executed 00:00:01.916 ago </span><br><span class="line">        SPF algorithm executed 5 times </span><br><span class="line">        Area ranges are </span><br><span class="line">        Number of LSA 2. Checksum Sum 0x010117 </span><br><span class="line">        Number of opaque link LSA 0. Checksum Sum 0x000000 </span><br><span class="line">        Number of DCbitless LSA 0 </span><br><span class="line">        Number of indication LSA 0 </span><br><span class="line">        Number of DoNotAge LSA 0 </span><br><span class="line">        Flood list length 0 以上输出表明区域 0 采用简单口令认证](https://note.youdao.com/)</span><br></pre></td></tr></table></figure></p>
-<p>。 （3）如果 R1 区域 0 没有启动认证，而 R2 区域 0 启动简单口令认证，则 R2 上出现下面 的信息： *Feb 10 11:03:03.071: OSPF: Rcv pkt from 192.168.12.1, Serial0/0/0 : Mismatch Authentication type. Input packet specified type 0, we use type 1 </p>
-<p>（4）如果 R1 和 R2 的区域 0 都启动简单口令认证，但是 R2 的接口下没有配置密码或密 码错误，则 R2 上出现下面的信息： *Feb 10 10:55:53.071: OSPF: Rcv pkt from 192.168.12.1, Serial0/0/0 : Mismatch Authentication Key - Clear Text<br>6.4.2 实验 4: 基于区域的 OSPF MD5 认证<br>1.实验目的 通过本实验可以掌握：<br>（1）OSPF 认证的类型和意义<br>（2）基于区域的 OSPF MD5 认证的配置和调试<br> 2.实验拓扑 本实验的拓扑结构如图 6-3 所示。<br> 3.实验步骤 （1）步骤 1：配置路由器 R1 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#router ospf 1</span><br><span class="line"> R1(config-router)#router-id 1.1.1.1</span><br><span class="line"> R1(config-router)#network 192.168.12.0 255.255.255.0 area 0</span><br><span class="line"> R1(config-router)#network 1.1.1.0 255.255.255.0 area 0</span><br><span class="line"> R1(config-router)#area 0 authentication message-digest //区域 0</span><br></pre></td></tr></table></figure>
-<p> 启用 MD5 认证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#interface s0/0/0 </span><br><span class="line"> R1(config-if)#ip ospf message-digest-key 1 md5 cisco//配置认证 key ID 及密匙</span><br></pre></td></tr></table></figure>
-<p>（2）步骤 2：配置路由器 R2 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#router ospf 1</span><br><span class="line">R2(config-router)#router-id 2.2.2.2 </span><br><span class="line">R2(config-router)#network 2.2.2.0 255.255.255.0 area 0 </span><br><span class="line">R2(config-router)#network 192.168.12.0 255.255.255.0 area 0 </span><br><span class="line">R2(config-router)#area 0 authentication message-digest</span><br><span class="line">R2(config)#interface s0/0/0 R2(config-if)#ip ospf message-digest-key 1 md5 cisco</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2019/05/22/ospf认证/#more">展开全文 >></a>
+        
       
 
       
@@ -196,12 +208,19 @@
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-网络 -ospf</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/22/ospf认证/">展开全文 >></a>
-        </p>
+
       
 
       
@@ -257,81 +276,8 @@
 <h6 id="emsp-emsp-交换机在不知道去往的目标在什么地方的时候选择将该数据包从除接受接口之外所有接口都发送一份的过程-泛红不需要关注数据包的类型"><a href="#emsp-emsp-交换机在不知道去往的目标在什么地方的时候选择将该数据包从除接受接口之外所有接口都发送一份的过程-泛红不需要关注数据包的类型" class="headerlink" title="&emsp;&emsp;交换机在不知道去往的目标在什么地方的时候选择将该数据包从除接受接口之外所有接口都发送一份的过程 泛红不需要关注数据包的类型"></a>&emsp;&emsp;交换机在不知道去往的目标在什么地方的时候选择将该数据包从除接受接口之外所有接口都发送一份的过程 泛红不需要关注数据包的类型</h6><blockquote>
 <h5 id="转发"><a href="#转发" class="headerlink" title="转发"></a>转发<br></h5></blockquote>
 <h6 id="emsp-emsp-在交换机知道去往的目标在什么地方的时候直接将数据包发送到对应的目标所连接的接口"><a href="#emsp-emsp-在交换机知道去往的目标在什么地方的时候直接将数据包发送到对应的目标所连接的接口" class="headerlink" title="&emsp;&emsp;在交换机知道去往的目标在什么地方的时候直接将数据包发送到对应的目标所连接的接口"></a>&emsp;&emsp;在交换机知道去往的目标在什么地方的时候直接将数据包发送到对应的目标所连接的接口</h6><h2 id="交换机的基本配置"><a href="#交换机的基本配置" class="headerlink" title="交换机的基本配置"></a>交换机的基本配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface e0/0 //配置口</span><br><span class="line">duplex auto</span><br><span class="line">speed auto  </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p><div style="background:gray; border-radius:5px; padding :10px;color:white;"><br>广播域：             <br><br>冲突域：             <br><br></div><br><br></p>
-<p>一个VLAN = 一个子网 = 一个广播域</p><br><p>access:通常用来连接服务终端设备</p><br><p>trunk:通常用于交换机和交换机之间的连接,在转发数据帧的过程中不会对vlan标记进行拆除</p>
-
-
-<h4 id="vlan配置"><a href="#vlan配置" class="headerlink" title="vlan配置"></a><center>vlan配置</center></h4><p>1.创建vlan</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vlan 10</span><br><span class="line">exit</span><br><span class="line">show vlan brief</span><br><span class="line">name xxx //创建名字</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>改接口模式<br>将接口划分到对应vlan</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int e0/0 </span><br><span class="line">switchport mode access vlan 10 </span><br><span class="line">       access</span><br><span class="line">       dot1q-tunnel</span><br><span class="line">       dynameic</span><br><span class="line">       private-vlan</span><br><span class="line">       trunk 通行所有vlan</span><br><span class="line">       switchport trubk encapsulation dot1q</span><br><span class="line">       show int trunk //查看trunk口</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>本证vlan</strong></p>
-</blockquote>
-<h5 id="在向外发送vlan数据包的过程中，会检查vlan桢中携带vlan标记"><a href="#在向外发送vlan数据包的过程中，会检查vlan桢中携带vlan标记" class="headerlink" title="在向外发送vlan数据包的过程中，会检查vlan桢中携带vlan标记"></a>在向外发送vlan数据包的过程中，会检查vlan桢中携带vlan标记</h5>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/22/交换机入门/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-开始学习逆向第一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/开始学习逆向第一天/">开始学习逆向的第一天</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/22/开始学习逆向第一天/" class="archive-article-date">
-  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+          <a class="article-more-a" href="/2019/05/22/交换机入门/#more">展开全文 >></a>
         
       
 
@@ -340,12 +286,19 @@
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/22/开始学习逆向第一天/">展开全文 >></a>
-        </p>
+
       
 
       
@@ -403,7 +356,7 @@
 <li>1024-49151 :用户端口号</li>
 <li><p>49152-65535 : 动态端口号（源端口号）</p>
         
-          <a class="article-more-a" href="/2019/05/22/交换网络/#more">more >></a>
+          <a class="article-more-a" href="/2019/05/22/交换网络/#more">展开全文 >></a>
         
       
 
@@ -412,12 +365,88 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/22/交换网络/">展开全文 >></a>
-        </p>
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-开始学习逆向第一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/22/开始学习逆向第一天/">开始学习逆向的第一天</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/22/开始学习逆向第一天/" class="archive-article-date">
+  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-逆向</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
       
 
       
@@ -473,11 +502,11 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -537,6 +566,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-网络 -ospf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-逆向</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -618,7 +659,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">the night always by my side</div>
   	  	
     	</section>
     
