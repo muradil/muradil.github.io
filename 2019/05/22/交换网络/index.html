@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://muradil.github.io">
-  <title>Archives | 笔芯の博客</title>
+  <title>交换网络 | 笔芯の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="笔芯の博客">
-<meta property="og:url" content="http://muradil.github.io/archives/index.html">
+  <meta name="description" content="交换网络 传输层：  sport:49153          dport:23  1-1023: 1024-49151 :用户端口号 49152-65535 : 动态端口号（源端口号）   网络层  sou:               dis:  链路层  smac：                dimac：  数据帧：  前导码                 7字节 帧首定界符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="交换网络">
+<meta property="og:url" content="http://muradil.github.io/2019/05/22/交换网络/index.html">
 <meta property="og:site_name" content="笔芯の博客">
+<meta property="og:description" content="交换网络 传输层：  sport:49153          dport:23  1-1023: 1024-49151 :用户端口号 49152-65535 : 动态端口号（源端口号）   网络层  sou:               dis:  链路层  smac：                dimac：  数据帧：  前导码                 7字节 帧首定界符">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-03T02:15:02.364Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔芯の博客">
+<meta name="twitter:title" content="交换网络">
+<meta name="twitter:description" content="交换网络 传输层：  sport:49153          dport:23  1-1023: 1024-49151 :用户端口号 49152-65535 : 动态端口号（源端口号）   网络层  sou:               dis:  链路层  smac：                dimac：  数据帧：  前导码                 7字节 帧首定界符">
   
     <link rel="alternative" href="/atom.xml" title="笔芯の博客" type="application/atom+xml">
   
@@ -150,130 +154,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-交换网络" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      交换网络
+    </h1>
+  
+
+        
+        <a href="/2019/05/22/交换网络/" class="archive-article-date">
+  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="交换网络"><a href="#交换网络" class="headerlink" title="交换网络"></a>交换网络</h1><blockquote>
+<p><strong>传输层</strong>：</p>
+</blockquote>
+<pre><code>sport:49153          dport:23
+</code></pre><ul>
+<li>1-1023:</li>
+<li>1024-49151 :用户端口号</li>
+<li>49152-65535 : 动态端口号（源端口号）</li>
+</ul>
+<blockquote>
+<p><strong>网络层</strong></p>
+</blockquote>
+<pre><code>sou:               dis:
+</code></pre><blockquote>
+<p><strong>链路层</strong></p>
+</blockquote>
+<pre><code>smac：                dimac：
+</code></pre><blockquote>
+<p><strong>数据帧</strong>：</p>
+<ul>
+<li>前导码                 7字节</li>
+<li>帧首定界符                    1字节</li>
+<li>Mac地址（目标Mac地址）6字节</li>
+<li>Mac地址（源Mac地址）  6字节</li>
+<li>长度字段 1字节</li>
+<li>数据（46-1500）字节</li>
+<li>校验 4字节</li>
+</ul>
+</blockquote>
+<p>802.3:64 <br></p>
+<p>以太网：64-1522</p>
+<p><strong>arp地址解析协议</strong>:将目标的IP地址解析成对应Mac的过程</p>
+<h4 id="三层协议"><a href="#三层协议" class="headerlink" title="三层协议"></a><center style="color:red;">三层协议</center><br></h4><p>请求包  &emsp; 应答包</p>
+<p><strong>1、标准ARP</strong></p>
+<p><strong>2、免费ARP</strong>：主要是用来检测本地配置的IP地址是否同一网段当中发生冲突</p>
+<p><strong>3、代理ARP</strong>：pc端发送一个ARP请求包。但是请求的主机IP地址在我们实际的网段当中是不存在的，这个时候有网段当中的一个网络设备将自己Mac地址作为响应的一个过程<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（1）请求的IP地址和本身的IP地址不在同一个网段</span><br><span class="line">（2）作为响应的那台网络设备必须要有请求的IP地址的路由</span><br><span class="line">（3）作为响应的那台网络设备必须开启代理ARP功能</span><br></pre></td></tr></table></figure></p>
+<p>// &gt; ###  网关：<br></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/22/ospf认证/" class="archive-article-date">
-  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/ospf认证/">ospf认证</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://muradil.github.io/2019/05/22/交换网络/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/22/交换网络/" class="archive-article-date">
-  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/05/22/ospf认证/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ospf认证
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/22/交换机入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">交换机入门</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/交换网络/">交换网络</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/22/交换机入门/" class="archive-article-date">
-  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/交换机入门/">交换机入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/22/开始学习逆向第一天/" class="archive-article-date">
-  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/开始学习逆向第一天/">开始学习逆向的第一天</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -296,8 +371,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
