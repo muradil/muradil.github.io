@@ -6,17 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://muradil.github.io">
-  <title>开始学习逆向的第一天 | 笔芯の博客</title>
+  <title>bwapp用nc反弹shell | 笔芯の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="-逆向">
+  <meta name="description" content="首先打开虚拟机查看ip   然后通过物理机访问，为什么用物理机访问 主要是键盘调了好久 都调不过来 无奈之下用物理机访问了。">
+<meta name="keywords" content="-bwapp -os命令执行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开始学习逆向的第一天">
-<meta property="og:url" content="http://muradil.github.io/2019/05/22/开始学习逆向第一天/index.html">
+<meta property="og:title" content="bwapp用nc反弹shell">
+<meta property="og:url" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/index.html">
 <meta property="og:site_name" content="笔芯の博客">
+<meta property="og:description" content="首先打开虚拟机查看ip   然后通过物理机访问，为什么用物理机访问 主要是键盘调了好久 都调不过来 无奈之下用物理机访问了。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-03T11:19:54.370Z">
+<meta property="og:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp1.png">
+<meta property="og:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp2.png">
+<meta property="og:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp3.png">
+<meta property="og:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp4.png">
+<meta property="og:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp5.png">
+<meta property="og:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp6.png">
+<meta property="og:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp7.png">
+<meta property="og:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp8.png">
+<meta property="og:updated_time" content="2019-08-15T14:15:16.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开始学习逆向的第一天">
+<meta name="twitter:title" content="bwapp用nc反弹shell">
+<meta name="twitter:description" content="首先打开虚拟机查看ip   然后通过物理机访问，为什么用物理机访问 主要是键盘调了好久 都调不过来 无奈之下用物理机访问了。">
+<meta name="twitter:image" content="http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/bwapp1.png">
   
     <link rel="alternative" href="/atom.xml" title="笔芯の博客" type="application/atom+xml">
   
@@ -172,27 +184,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-开始学习逆向第一天" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-bwapp用nc反弹shell" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      开始学习逆向的第一天
+      bwapp用nc反弹shell
     </h1>
   
 
         
-        <a href="/2019/05/22/开始学习逆向第一天/" class="archive-article-date">
-  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
+        <a href="/2018/05/22/bwapp用nc反弹shell/" class="archive-article-date">
+  	<time datetime="2018-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p> <meta name="referrer" content="no-referrer"><br>首先打开虚拟机查看ip</p>
+<p><img src="/2018/05/22/bwapp用nc反弹shell/bwapp1.png" alt="img"> </p>
+<p>然后通过物理机访问，为什么用物理机访问 主要是键盘调了好久 都调不过来 无奈之下用物理机访问了。</p>
+<a id="more"></a>
+<p><img src="/2018/05/22/bwapp用nc反弹shell/bwapp2.png" alt="img"> </p>
+<p><img src="/2018/05/22/bwapp用nc反弹shell/bwapp3.png" alt="img"> </p>
+<p>看到一个框框估计可以命令执行</p>
+<p><img src="/2018/05/22/bwapp用nc反弹shell/bwapp4.png" alt="img"> </p>
+<p>尝试加了个管道符 可以执行命令 用nc反弹shell</p>
+<p><img src="/2018/05/22/bwapp用nc反弹shell/bwapp5.png" alt="img">  </p>
+<p>好了看到端口已经监听了</p>
+<p><img src="/2018/05/22/bwapp用nc反弹shell/bwapp6.png" alt="img">  </p>
+<p>然后虚拟机就崩了。。。。真的就崩了 然后我差点就崩溃了 做到一半 但是不能就这样算了重新来过，好的继续重新反弹shell</p>
+<p><img src="/2018/05/22/bwapp用nc反弹shell/bwapp7.png" alt="img"> </p>
+<p>遇到了个问题 ，但是重新试了一下 成功了</p>
+<p><img src="/2018/05/22/bwapp用nc反弹shell/bwapp8.png" alt="img"></p>
+
       
 
       
@@ -231,7 +259,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-逆向</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-bwapp -os命令执行</a>
         		</li>
       		
 		</ul>
@@ -287,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://muradil.github.io/2019/05/22/开始学习逆向第一天/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://muradil.github.io/2018/05/22/bwapp用nc反弹shell/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,20 +329,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/15/mssql注入到拿下服务器/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/22/开始学习逆向第一天/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          mssql注入到拿下服务器
+          开始学习逆向的第一天
         
       </div>
     </a>
   
-  
-    <a href="/2018/05/22/bwapp用nc反弹shell/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">bwapp用nc反弹shell</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 

